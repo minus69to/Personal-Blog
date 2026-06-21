@@ -24,7 +24,7 @@
 		width: var(--content);
 		margin-inline: auto;
 		padding-block: 4rem 3rem;
-		border-top: 1px solid var(--line);
+		border-top: 3px double var(--line-strong);
 	}
 
 	.sign-off {

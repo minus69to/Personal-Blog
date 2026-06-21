@@ -301,11 +301,9 @@
 	.featured,
 	.shelves {
 		margin-bottom: clamp(2rem, 5vw, 4rem);
-		padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 4vw, 3.5rem);
-		border: 1px solid var(--line);
-		border-radius: 1.5rem 1.5rem 1.5rem 0.35rem;
-		background: color-mix(in srgb, var(--paper-raised) 58%, transparent);
-		box-shadow: 0 18px 55px rgba(48, 48, 39, 0.045);
+		padding: clamp(3rem, 7vw, 6rem) 0;
+		border-top: 3px double var(--line-strong);
+		border-bottom: 1px solid var(--line-strong);
 	}
 
 	.section-heading {
@@ -358,23 +356,29 @@
 	}
 
 	.category-list a {
+		position: relative;
 		display: grid;
 		grid-template-columns: 2rem 1fr auto;
 		align-items: center;
 		gap: 1rem;
 		padding: 1.15rem;
 		border: 1px solid var(--line);
-		border-radius: .75rem .75rem .75rem .18rem;
-		background: color-mix(in srgb, var(--paper-raised) 72%, transparent);
+		border-radius: .12rem;
+		background: var(--paper-raised);
+		box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 12%, transparent);
 		transition: color 180ms ease, transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 	}
 
 	.category-list a:hover {
 		color: var(--accent-deep);
 		border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
-		box-shadow: 0 12px 25px rgba(48,48,39,.08);
-		transform: translateY(-.25rem);
+		box-shadow: 5px 6px 0 color-mix(in srgb, var(--ink) 15%, transparent);
+		transform: translate(-.15rem, -.2rem);
 	}
+
+	.category-list a:nth-child(3n + 2) { background: var(--accent-soft); }
+	.category-list a:nth-child(3n) { background: color-mix(in srgb, var(--rose) 11%, var(--paper-raised)); }
+	.category-list a::after { position: absolute; top: -.35rem; right: 1rem; width: 1.8rem; height: .7rem; content: ''; background: color-mix(in srgb, var(--rose) 30%, transparent); transform: rotate(3deg); }
 
 	.category-list span {
 		color: var(--ink-soft);
@@ -402,10 +406,13 @@
 		margin-bottom: clamp(5rem, 9vw, 8rem);
 		padding: clamp(3rem, 6vw, 5rem);
 		border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
-		border-radius: 1.5rem 1.5rem 1.5rem .35rem;
+		border-radius: .15rem;
 		background: var(--accent-soft);
-		box-shadow: 0 20px 60px rgba(48,48,39,.08);
+		box-shadow: 8px 9px 0 color-mix(in srgb, var(--ink) 11%, transparent);
+		transform: rotate(-.15deg);
 	}
+
+	.note-invite::before { position: absolute; top: -.6rem; left: 50%; width: 6rem; height: 1.5rem; content: ''; background: color-mix(in srgb, var(--paper-raised) 72%, transparent); transform: translateX(-50%) rotate(1deg); }
 
 	.note-invite > span {
 		position: absolute;

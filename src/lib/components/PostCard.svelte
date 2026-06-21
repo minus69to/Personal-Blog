@@ -5,9 +5,10 @@
 	let { post, large = false }: { post: Post; large?: boolean } = $props();
 </script>
 
-<article class:large>
+<article class={post.category} class:large>
 	<span class="paperclip" aria-hidden="true"></span>
 	<span class="postage" aria-hidden="true"><small>memory</small><strong>{post.date.slice(0, 4)}</strong></span>
+	<span class="issue-tab" aria-hidden="true">No. {post.slug.length.toString().padStart(2, '0')}</span>
 	<a class="cover {post.coverTone}" href={`/post/${post.slug}`} aria-label={`Read ${post.title}`}>
 		{#if post.coverImage}<img src={post.coverImage} alt="" loading="lazy" />{/if}
 		<span class="cover-word">{post.category}</span>
@@ -103,6 +104,22 @@
 	.postage strong { margin-top: .15rem; font-family: var(--font-display); font-size: 1rem; font-weight: 500; }
 	article:hover .postage { transform: rotate(1deg) translateY(-.15rem); }
 
+	.issue-tab {
+		position: absolute;
+		right: -.3rem;
+		bottom: 1.15rem;
+		z-index: 3;
+		padding: .32rem .7rem;
+		color: var(--paper-raised);
+		background: var(--ink);
+		font-size: .45rem;
+		font-weight: 600;
+		letter-spacing: .13em;
+		text-transform: uppercase;
+		transform: rotate(-90deg) translateX(100%);
+		transform-origin: right bottom;
+	}
+
 	.cover {
 		position: relative;
 		display: flex;
@@ -146,6 +163,13 @@
 	.cover.plum { background: linear-gradient(145deg, #9c7c85, #594951); }
 	.cover.sand { background: linear-gradient(145deg, #d8c9a9, #a59173); }
 	.cover.mist { background: linear-gradient(145deg, #b8c6c4, #758988); }
+	article.food .postage { background: #9a695c; box-shadow: 0 0 0 3px #9a695c, 0 5px 12px rgba(0,0,0,.12); }
+	article.travel .postage { background: #68755c; box-shadow: 0 0 0 3px #68755c, 0 5px 12px rgba(0,0,0,.12); }
+	article.running .postage { background: #a57957; box-shadow: 0 0 0 3px #a57957, 0 5px 12px rgba(0,0,0,.12); }
+	article.books .postage { background: #5e6972; box-shadow: 0 0 0 3px #5e6972, 0 5px 12px rgba(0,0,0,.12); }
+	article.movies .postage { background: #7d626b; box-shadow: 0 0 0 3px #7d626b, 0 5px 12px rgba(0,0,0,.12); }
+	article.thoughts .postage,
+	article.life .postage { background: #7b8070; box-shadow: 0 0 0 3px #7b8070, 0 5px 12px rgba(0,0,0,.12); }
 
 	.cover img {
 		position: absolute;

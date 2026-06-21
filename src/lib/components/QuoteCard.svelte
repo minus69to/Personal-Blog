@@ -19,15 +19,29 @@
 		position: relative;
 		overflow: hidden;
 		border: 1px solid var(--line);
-		border-radius: 1.25rem 1.25rem 1.25rem 0.25rem;
-		background: linear-gradient(145deg, var(--paper-raised), color-mix(in srgb, var(--accent-soft) 55%, var(--paper-raised)));
-		box-shadow: 0 12px 35px rgba(48, 48, 39, 0.06);
+		border-radius: .1rem;
+		background:
+			repeating-linear-gradient(0deg, transparent 0 2rem, color-mix(in srgb, var(--line) 35%, transparent) 2rem calc(2rem + 1px)),
+			var(--paper-raised);
+		box-shadow: 7px 8px 0 color-mix(in srgb, var(--ink) 11%, transparent);
 		transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+	}
+
+	article::before {
+		position: absolute;
+		top: -.55rem;
+		left: 2rem;
+		z-index: 2;
+		width: 5rem;
+		height: 1.4rem;
+		content: '';
+		background: color-mix(in srgb, var(--rose) 25%, transparent);
+		transform: rotate(-3deg);
 	}
 
 	article:hover {
 		border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
-		box-shadow: 0 24px 60px rgba(48, 48, 39, 0.13);
+		box-shadow: 10px 12px 0 color-mix(in srgb, var(--ink) 15%, transparent);
 		transform: translateY(-0.45rem) rotate(-0.35deg);
 	}
 
@@ -35,7 +49,7 @@
 	.quote-mark { position: absolute; top: -3.5rem; right: 1rem; color: color-mix(in srgb, var(--accent) 13%, transparent); font-family: var(--font-display); font-size: 15rem; line-height: 1; transition: transform 350ms ease; }
 	article:hover .quote-mark { transform: translateY(.5rem) rotate(5deg); }
 	blockquote { position: relative; z-index: 1; max-width: 40rem; margin: auto 0; color: var(--ink); font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.6rem); font-style: italic; line-height: 1.08; }
-	.source { position: relative; z-index: 1; display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+	.source { position: relative; z-index: 1; display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-top: 3rem; padding-top: 1.2rem; border-top: 3px double var(--line-strong); }
 	.source strong, .source small { display: block; }
 	.source strong { font-family: var(--font-display); font-size: 1.05rem; font-weight: 500; }
 	.source small { margin-top: .2rem; color: var(--ink-soft); font-size: .58rem; letter-spacing: .07em; }

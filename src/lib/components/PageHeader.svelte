@@ -3,6 +3,7 @@
 </script>
 
 <header>
+	<span class="folio">Insomniyuck Review / {mark ?? 'Editions'}</span>
 	<div>
 		<p class="eyebrow">{kicker}</p>
 		<h1>{title}</h1>
@@ -19,7 +20,18 @@
 		align-items: end;
 		gap: 3rem;
 		padding: clamp(4rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5rem);
-		border-bottom: 1px solid var(--line);
+		border-bottom: 3px double var(--line-strong);
+	}
+
+	.folio {
+		position: absolute;
+		top: 1.2rem;
+		left: 0;
+		color: var(--ink-soft);
+		font-size: .53rem;
+		font-weight: 600;
+		letter-spacing: .18em;
+		text-transform: uppercase;
 	}
 
 	h1 {
@@ -44,7 +56,7 @@
 		position: absolute;
 		right: 0;
 		bottom: -0.15em;
-		color: color-mix(in srgb, var(--accent) 12%, transparent);
+		color: color-mix(in srgb, var(--accent) 18%, transparent);
 		font-family: var(--font-display);
 		font-size: clamp(7rem, 18vw, 14rem);
 		line-height: 1;
