@@ -1,0 +1,18 @@
+---
+title: A line from Emma
+slug: on-remembering
+date: '2026-01-30'
+category: quotes
+tags: [jane austen, tenderness]
+excerpt: A favourite line about the quiet strength of a tender heart.
+coverTone: mist
+gallery: []
+videos: []
+quote: There is no charm equal to tenderness of heart.
+source: Emma — Jane Austen
+featured: false
+---
+
+> There is no charm equal to tenderness of heart.
+
+I like how simply this line puts something that is easy to overlook. Warmth is not weakness; often it is the quality that gives everything else its meaning.
