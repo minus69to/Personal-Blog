@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PostCard from '$lib/components/PostCard.svelte';
+	import VisitCounter from '$lib/components/VisitCounter.svelte';
 	import { categoryDetails } from '$lib/data/categories';
 	import { posts } from '$lib/data/posts';
 
@@ -27,6 +28,7 @@
 			<h1>Small moments,<br /><em>kept with care.</em></h1>
 			<p class="intro">A quiet corner for meals shared, roads taken, miles run, stories loved, and all the beautiful in-between.</p>
 			<a class="soft-link" href="/archive">Wander through the archive <span>→</span></a>
+			<div><VisitCounter /></div>
 		</div>
 
 		<div class="keepsake" aria-label="A decorative journal keepsake">

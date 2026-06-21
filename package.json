@@ -11,7 +11,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^7.0.1",
+		"@sveltejs/adapter-vercel": "^6.3.4",
 		"@sveltejs/kit": "^2.65.2",
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
 		"mdsvex": "^0.12.7",
@@ -21,7 +21,10 @@
 		"vite": "^7.3.5"
 	},
 	"dependencies": {
+		"@aws-sdk/client-s3": "^3.1073.0",
+		"@aws-sdk/s3-request-presigner": "^3.1073.0",
 		"@fontsource/cormorant-garamond": "^5.2.11",
-		"@fontsource/dm-sans": "^5.2.8"
+		"@fontsource/dm-sans": "^5.2.8",
+		"@upstash/redis": "^1.38.0"
 	}
 }
