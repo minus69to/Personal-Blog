@@ -3,7 +3,7 @@
 	let { post }: { post: Post } = $props();
 </script>
 
-<article>
+<article lang={post.language}>
 	<a href={`/post/${post.slug}`} aria-label={`Read ${post.title}`}>
 		<span class="quote-mark" aria-hidden="true">“</span>
 		<blockquote>{post.quote ?? post.excerpt}</blockquote>

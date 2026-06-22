@@ -9,7 +9,7 @@
 
 <svelte:head><title>{data.post.title} — Insomniyuck</title><meta name="description" content={data.post.excerpt} /></svelte:head>
 
-<article class="page-shell">
+<article class="page-shell" lang={data.post.language}>
 	<header>
 		<CategoryBadge category={data.post.category} />
 		<h1>{data.post.title}</h1>
@@ -70,6 +70,10 @@
 	.post-footer { display: flex; justify-content: space-between; max-width: 58rem; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--line); }
 	.post-footer a { color: var(--ink-soft); font-family: var(--font-display); font-size: 1rem; font-style: italic; }
 	.post-footer a:hover { color: var(--accent-deep); }
+	article:lang(bn) h1 { line-height: 1.08; letter-spacing: -.025em; }
+	article:lang(bn) .prose :global(p) { line-height: 1.9; }
+	article:lang(bn) .prose :global(h2) { line-height: 1.28; }
+	article:lang(bn) .prose :global(p:first-child::first-letter) { margin-top: .02em; line-height: .85; }
 
 	@media (max-width: 700px) {
 		.story-layout { grid-template-columns: 1fr; gap: 2rem; }

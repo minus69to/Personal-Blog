@@ -9,6 +9,7 @@ Posts live in category folders inside `content/posts`. To add one, copy an exist
 title: The title readers will see
 slug: a-unique-url-friendly-slug
 date: '2026-06-21'
+language: en
 category: food
 tags: [coffee, friends]
 excerpt: A short description used on cards and in search previews.
@@ -49,3 +50,5 @@ videos:
 ```
 
 Remote Cloudflare R2 public URLs can be used in exactly the same fields later. Keep image files reasonably compressed and add captions or subtitles to videos when possible.
+
+Use `language: bn` for a Bangla post. Bangla is supported in titles, excerpts, tags, quotes, and the Markdown body. Keep the `slug` in English transliteration for a clean, reliable URL.

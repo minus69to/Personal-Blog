@@ -18,6 +18,7 @@ export type Post = {
 	title: string;
 	slug: string;
 	date: string;
+	language: 'en' | 'bn';
 	category: Category;
 	tags: string[];
 	excerpt: string;
@@ -88,6 +89,7 @@ function parsePost(value: unknown, contentPath: string): Post {
 		title: requiredString(meta.title, 'title', contentPath),
 		slug: requiredString(meta.slug, 'slug', contentPath),
 		date,
+		language: meta.language === 'bn' ? 'bn' : 'en',
 		category: category as Category,
 		tags: stringList(meta.tags, 'tags', contentPath),
 		excerpt: requiredString(meta.excerpt, 'excerpt', contentPath),

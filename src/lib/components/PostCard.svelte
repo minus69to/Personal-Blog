@@ -5,7 +5,7 @@
 	let { post, large = false }: { post: Post; large?: boolean } = $props();
 </script>
 
-<article class={post.category} class:large>
+<article class={post.category} class:large lang={post.language}>
 	<span class="paperclip" aria-hidden="true"></span>
 	<span class="postage" aria-hidden="true"><small>memory</small><strong>{post.date.slice(0, 4)}</strong></span>
 	<span class="issue-tab" aria-hidden="true">No. {post.slug.length.toString().padStart(2, '0')}</span>

@@ -9,6 +9,7 @@
 	let slug = $state('');
 	let slugTouched = $state(false);
 	let date = $state(today);
+	let language = $state<'en' | 'bn'>('en');
 	let category = $state('thoughts');
 	let tags = $state('');
 	let excerpt = $state('');
@@ -74,6 +75,7 @@
 			slug = typeof metadata.slug === 'string' ? metadata.slug : slugify(title);
 			slugTouched = true;
 			date = typeof metadata.date === 'string' ? metadata.date : today;
+			language = metadata.language === 'bn' ? 'bn' : 'en';
 			category = typeof metadata.category === 'string' && categories.includes(metadata.category) ? metadata.category : 'thoughts';
 			tags = strings(metadata.tags).join(', ');
 			excerpt = typeof metadata.excerpt === 'string' ? metadata.excerpt : '';
@@ -103,6 +105,7 @@
 			`title: ${yaml(title || 'Untitled memory')}`,
 			`slug: ${yaml(slug || 'untitled-memory')}`,
 			`date: ${yaml(date)}`,
+			`language: ${language}`,
 			`category: ${category}`,
 			`tags: ${JSON.stringify(list(tags))}`,
 			`excerpt: ${yaml(excerpt || 'A memory still waiting for its short introduction.')}`,
@@ -188,6 +191,7 @@
 			<div class="wide field"><label for="title">Title *</label><input id="title" bind:value={title} oninput={titleChanged} placeholder="The afternoon the rain stayed" required /></div>
 			<div class="field"><label for="slug">URL slug *</label><input id="slug" bind:value={slug} oninput={() => { slugTouched = true; slug = slugify(slug); }} placeholder="the-afternoon-rain-stayed" required /></div>
 			<div class="field"><label for="date">Date *</label><input id="date" type="date" bind:value={date} required /></div>
+			<div class="field"><label for="language">Writing language</label><select id="language" bind:value={language}><option value="en">English</option><option value="bn">বাংলা</option></select></div>
 			<div class="field"><label for="category">Section</label><select id="category" bind:value={category}>{#each categories as item}<option value={item}>{item}</option>{/each}</select></div>
 			<div class="field"><label for="tone">Cover tone</label><select id="tone" bind:value={coverTone}>{#each tones as tone}<option value={tone}>{tone}</option>{/each}</select></div>
 			<div class="wide field"><label for="tags">Tags <small>comma-separated</small></label><input id="tags" bind:value={tags} placeholder="rain, cafe, dhaka" /></div>
@@ -208,7 +212,7 @@
 		</form>
 
 		<aside class="proof-column">
-			<section class="proof">
+			<section class="proof" lang={language}>
 				<p class="proof-label">Reader's proof</p>
 				{#if coverImage}<img class="cover" src={coverImage} alt="Post cover preview" />{/if}
 				<p class="proof-category">{category} · {date}</p>
@@ -281,6 +285,9 @@
 	.story h3.large { font-size: 2rem; }
 	.story blockquote { margin: 1.5rem 0; padding-left: 1rem; color: var(--ink-soft); border-left: 2px solid var(--rose); font-family: var(--font-display); font-size: 1.25rem; font-style: italic; }
 	.story .list { margin: .25rem 0; }
+	.proof:lang(bn) > h2 { line-height: 1.18; letter-spacing: -.02em; }
+	.proof:lang(bn) .story p { line-height: 1.85; }
+	.proof:lang(bn) .story h3 { line-height: 1.3; }
 	.export-card { transform: rotate(-.3deg); }
 	.export-card h2 { margin: .5rem 0; overflow-wrap: anywhere; font-family: var(--font-display); font-size: 1.7rem; font-weight: 500; }
 	.export-card p:not(.eyebrow) { color: var(--ink-soft); font-size: .72rem; line-height: 1.6; }

@@ -5,14 +5,20 @@
 @import '@fontsource/dm-sans/latin-400.css';
 @import '@fontsource/dm-sans/latin-500.css';
 @import '@fontsource/dm-sans/latin-600.css';
+@import '@fontsource/noto-serif-bengali/bengali-400.css';
+@import '@fontsource/noto-serif-bengali/bengali-500.css';
+@import '@fontsource/noto-serif-bengali/bengali-600.css';
+@import '@fontsource/noto-sans-bengali/bengali-400.css';
+@import '@fontsource/noto-sans-bengali/bengali-500.css';
+@import '@fontsource/noto-sans-bengali/bengali-600.css';
 
 :root {
-	font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+	font-family: 'DM Sans', 'Noto Sans Bengali', ui-sans-serif, system-ui, sans-serif;
 	color: #29271f;
 	background: #ece5d3;
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
-	--font-display: 'Cormorant Garamond', Georgia, serif;
+	--font-display: 'Cormorant Garamond', 'Noto Serif Bengali', Georgia, serif;
 	--paper: #ece5d3;
 	--paper-raised: #f4eedf;
 	--photo-mat: #e6deca;
