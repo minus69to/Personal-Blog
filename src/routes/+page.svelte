@@ -2,9 +2,9 @@
 	import PostCard from '$lib/components/PostCard.svelte';
 	import VisitCounter from '$lib/components/VisitCounter.svelte';
 	import { categoryDetails } from '$lib/data/categories';
-	import { posts } from '$lib/data/posts';
 
-	const featured = posts.filter((post) => post.featured);
+	let { data } = $props();
+	const featured = $derived(data.posts.filter((post) => post.featured));
 </script>
 
 <svelte:head>

@@ -1,6 +1,6 @@
 import type { RequestHandler } from './$types';
 import { categoryDetails } from '$lib/data/categories';
-import { posts } from '$lib/data/posts';
+import { listPublicPosts } from '$lib/server/publicPosts';
 
 const origin = 'https://insomniyuck.me';
 
@@ -14,7 +14,8 @@ function escapeXml(value: string) {
 	})[character] ?? character);
 }
 
-export const GET: RequestHandler = () => {
+export const GET: RequestHandler = async () => {
+	const posts = await listPublicPosts();
 	const publicPages = ['/', '/archive', '/about', ...Object.keys(categoryDetails).map((category) => `/${category}`)];
 	const pageEntries = publicPages.map((path) => `<url><loc>${escapeXml(`${origin}${path}`)}</loc></url>`);
 	const postEntries = posts.map((post) => [

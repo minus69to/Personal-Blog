@@ -45,3 +45,9 @@ Environment-variable changes only apply to new deployments, so redeploy after ad
 The deployed site publishes `/robots.txt` and a dynamic `/sitemap.xml` containing public sections and every post. Canonical metadata always points to `https://insomniyuck.me`, while `/studio` and `/api` are excluded from crawler access.
 
 After deployment, add the domain to Google Search Console and submit `https://insomniyuck.me/sitemap.xml`. A sitemap helps discovery but does not guarantee or accelerate ranking.
+
+## Private content backups
+
+The authenticated Studio post archive provides **Download backup**. It streams every database post—including drafts, full Markdown bodies, media URLs, timestamps, and deletion history—into a versioned JSON file. Keep occasional copies somewhere separate from Vercel, Upstash, and the project repository.
+
+Use **Restore backup** on the same page to merge a version 1 JSON backup into the current database. Restore runs in batches of 20 posts, skips matching slugs by default, and only replaces existing posts when **Replace matching posts** is explicitly enabled and confirmed.

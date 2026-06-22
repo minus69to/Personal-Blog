@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { posts, type Category } from '$lib/data/posts';
+	import type { Category, Post } from '$lib/data/posts';
 	import { categoryDetails } from '$lib/data/categories';
 	import PageHeader from './PageHeader.svelte';
 	import PostCard from './PostCard.svelte';
 	import QuoteCard from './QuoteCard.svelte';
 
-	let { category }: { category: Category } = $props();
+	let { category, posts }: { category: Category; posts: Post[] } = $props();
 	const details = $derived(categoryDetails[category]);
 	const categoryPosts = $derived(posts.filter((post) => post.category === category));
 </script>

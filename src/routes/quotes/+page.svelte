@@ -1,2 +1,2 @@
-<script lang="ts">import CategoryPage from '$lib/components/CategoryPage.svelte';</script>
-<CategoryPage category="quotes" />
+<script lang="ts">import CategoryPage from '$lib/components/CategoryPage.svelte'; let { data } = $props();</script>
+<CategoryPage category="quotes" posts={data.posts} />

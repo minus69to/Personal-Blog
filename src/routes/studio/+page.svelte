@@ -100,7 +100,7 @@
 			<h1>Media desk</h1>
 			<p>Prepare photographs and films for the next issue of your personal chronicle.</p>
 		</div>
-		<div class="studio-actions"><a href="/studio/new">Write a new post</a><form method="POST" action="/studio/logout"><button class="logout" type="submit">Close studio</button></form></div>
+		<div class="studio-actions"><a class="manage" href="/studio/posts">Manage posts</a><a href="/studio/new">Write a new post</a><form method="POST" action="/studio/logout"><button class="logout" type="submit">Close studio</button></form></div>
 	</header>
 
 	<section class="desk-grid">
@@ -175,6 +175,7 @@
 	.logout { padding: .7rem 1rem; color: var(--ink-soft); border: 1px solid var(--line-strong); background: transparent; cursor: pointer; font-size: .6rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
 	.studio-actions { display: flex; gap: .7rem; align-items: center; }
 	.studio-actions > a { padding: .75rem 1rem; color: var(--paper-raised); border: 1px solid var(--accent-deep); background: var(--accent-deep); font-size: .6rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
+	.studio-actions > a.manage { color: var(--ink); border-color: var(--line-strong); background: transparent; }
 	.desk-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .78fr); gap: clamp(2rem, 6vw, 5rem); align-items: start; padding-top: 4rem; }
 	.upload-sheet, .preview-sheet { position: relative; padding: clamp(1.5rem, 4vw, 2.5rem); border: 1px solid var(--line-strong); background: var(--paper-raised); box-shadow: var(--shadow); }
 	.upload-sheet { transform: rotate(-.2deg); }

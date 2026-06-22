@@ -1,15 +1,18 @@
 <script lang="ts">
 	import CategoryBadge from '$lib/components/CategoryBadge.svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
-	import { categoryNames, formatDate, posts, type Category } from '$lib/data/posts';
+	import { categoryNames, formatDate, type Category } from '$lib/data/posts';
+
+	let { data } = $props();
+	const posts = $derived(data.posts);
 
 	let selectedCategory = $state<Category | 'all'>('all');
 	let selectedYear = $state('all');
 	let selectedTag = $state('all');
 	let search = $state('');
 
-	const years = [...new Set(posts.map((post) => post.date.slice(0, 4)))];
-	const tags = [...new Set(posts.flatMap((post) => post.tags))].sort();
+	const years = $derived([...new Set(posts.map((post) => post.date.slice(0, 4)))]);
+	const tags = $derived([...new Set(posts.flatMap((post) => post.tags))].sort());
 	const filteredPosts = $derived(
 		posts.filter((post) => {
 			const query = search.trim().toLowerCase();

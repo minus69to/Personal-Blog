@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CategoryBadge from '$lib/components/CategoryBadge.svelte';
 	import Gallery from '$lib/components/Gallery.svelte';
+	import InlineMarkdown from '$lib/components/InlineMarkdown.svelte';
 	import VideoGallery from '$lib/components/VideoGallery.svelte';
 	import { formatDate } from '$lib/data/posts';
 	let { data } = $props();
@@ -36,7 +37,23 @@
 			{#if data.post.location}<div class="fact"><small>Location</small><strong>{data.post.location}</strong></div>{/if}
 			{#if data.post.source}<div class="fact"><small>Source</small><strong>{data.post.source}</strong></div>{/if}
 		</aside>
-		<div class="prose"><Content /></div>
+		<div class="prose">
+			{#if data.blocks}
+				{#each data.blocks as block}
+					{#if block.kind === 'heading'}
+						{#if block.level === 3}<h3><InlineMarkdown text={block.text} /></h3>{:else}<h2><InlineMarkdown text={block.text} /></h2>{/if}
+					{:else if block.kind === 'quote'}
+						<blockquote><p><InlineMarkdown text={block.text} /></p></blockquote>
+					{:else if block.kind === 'list'}
+						<ul>{#each block.items as item}<li><InlineMarkdown text={item} /></li>{/each}</ul>
+					{:else}
+						<p><InlineMarkdown text={block.text} /></p>
+					{/if}
+				{/each}
+			{:else if Content}
+				<Content />
+			{/if}
+		</div>
 	</section>
 	{#if data.post.gallery.length}<Gallery images={data.post.gallery} title={data.post.title} />{/if}
 	{#if data.post.videos.length}<VideoGallery videos={data.post.videos} title={data.post.title} />{/if}
@@ -71,6 +88,7 @@
 	.prose :global(p) { margin: 0 0 1.5rem; color: color-mix(in srgb, var(--ink) 86%, var(--ink-soft)); font-family: var(--font-display); font-size: clamp(1.15rem, 2vw, 1.32rem); line-height: 1.75; }
 	.prose :global(p:first-child::first-letter) { float: left; margin: .08em .1em 0 0; color: var(--accent-deep); font-size: 4.2em; line-height: .72; }
 	.prose :global(h2) { margin: 3rem 0 1rem; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; line-height: 1; }
+	.prose :global(h3) { margin: 2.3rem 0 .8rem; font-family: var(--font-display); font-size: clamp(1.55rem, 3vw, 2.1rem); font-weight: 500; line-height: 1.15; }
 	.prose :global(blockquote) { margin: 3rem 0; padding: 2rem 0 2rem 2rem; border-left: 1px solid var(--accent); }
 	.prose :global(blockquote p) { margin: 0; color: var(--accent-deep); font-size: clamp(1.65rem, 4vw, 2.25rem); font-style: italic; line-height: 1.25; }
 	.prose :global(ul) { margin: 1.5rem 0 2rem; padding: 0; list-style: none; }

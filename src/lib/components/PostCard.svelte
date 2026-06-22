@@ -136,6 +136,8 @@
 	.cover::before,
 	.cover::after {
 		position: absolute;
+		z-index: 1;
+		pointer-events: none;
 		content: '';
 		border: 1px solid color-mix(in srgb, white 35%, transparent);
 		border-radius: 50%;
@@ -174,7 +176,7 @@
 	.cover img {
 		position: absolute;
 		inset: 0;
-		z-index: -1;
+		z-index: 0;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
@@ -187,7 +189,7 @@
 
 	.cover-word {
 		position: relative;
-		z-index: 1;
+		z-index: 2;
 		color: rgba(255, 255, 255, 0.82);
 		font-family: var(--font-display);
 		font-size: 2.1rem;
@@ -196,6 +198,7 @@
 
 	.cover-mark {
 		position: absolute;
+		z-index: 2;
 		right: 1rem;
 		bottom: 1rem;
 		color: rgba(255, 255, 255, 0.72);
