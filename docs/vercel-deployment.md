@@ -22,6 +22,8 @@ UPSTASH_REDIS_REST_URL=
 UPSTASH_REDIS_REST_TOKEN=
 ```
 
+When installed through Vercel Marketplace with the `UPSTASH_REDIS_REST` prefix, the integration creates `UPSTASH_REDIS_REST_KV_REST_API_URL` and `UPSTASH_REDIS_REST_KV_REST_API_TOKEN` instead. The visit counter accepts either credential pair.
+
 Never prefix private values with `PUBLIC_`, paste them into source files, or commit a populated `.env` file.
 
 ## Deploy from GitHub

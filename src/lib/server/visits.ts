@@ -6,15 +6,24 @@ const PAGE_PREFIX = 'insomniyuck:visits:page:';
 
 let client: Redis | undefined;
 
+function credentials() {
+	return {
+		url: env.UPSTASH_REDIS_REST_URL || env.UPSTASH_REDIS_REST_KV_REST_API_URL,
+		token: env.UPSTASH_REDIS_REST_TOKEN || env.UPSTASH_REDIS_REST_KV_REST_API_TOKEN
+	};
+}
+
 export function visitsConfigured() {
-	return Boolean(env.UPSTASH_REDIS_REST_URL && env.UPSTASH_REDIS_REST_TOKEN);
+	const { url, token } = credentials();
+	return Boolean(url && token);
 }
 
 function redis() {
-	if (!visitsConfigured()) return undefined;
+	const { url, token } = credentials();
+	if (!url || !token) return undefined;
 	client ??= new Redis({
-		url: env.UPSTASH_REDIS_REST_URL,
-		token: env.UPSTASH_REDIS_REST_TOKEN,
+		url,
+		token,
 		enableAutoPipelining: true
 	});
 	return client;
