@@ -7,8 +7,8 @@
 <main class="page-shell">
 	<PageHeader kicker="A little introduction" title="About this diary" description="The person behind the pages—and the reason these small moments have a place to stay." mark="i" />
 	<section class="about-grid">
-		<div class="portrait" aria-label="A placeholder for your portrait">
-			<span>your photograph</span>
+		<div class="portrait">
+			<img src="/image/about-photo.jpg" alt="Souvik writing on his laptop" />
 		</div>
 		<div class="story">
 			<p class="opening">Hello. This is my small corner of the internet.</p>
@@ -18,7 +18,7 @@
 			<div class="interests">
 				<span>long runs</span><span>good coffee</span><span>quiet films</span><span>window seats</span>
 			</div>
-			<a class="note-link" href="https://ngl.link/insomniyuck1" target="_blank" rel="noreferrer">Send me an anonymous message →</a>
+			<a class="note-link" href="https://chithi.me/insomniyuck" target="_blank" rel="noopener noreferrer">Send me an anonymous message →</a>
 		</div>
 	</section>
 </main>
@@ -32,19 +32,21 @@
 	}
 
 	.portrait {
-		display: grid;
 		min-height: 34rem;
-		place-items: center;
+		overflow: hidden;
 		background: linear-gradient(145deg, var(--accent-soft), color-mix(in srgb, var(--rose) 42%, var(--paper)));
 		box-shadow: var(--shadow);
 		transform: rotate(-1.5deg);
 	}
 
-	.portrait span {
-		color: var(--ink-soft);
-		font-family: var(--font-display);
-		font-size: 1rem;
-		font-style: italic;
+	.portrait img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		min-height: 34rem;
+		object-fit: cover;
+		object-position: center;
+		filter: saturate(0.9) contrast(0.97);
 	}
 
 	.story {
@@ -105,5 +107,6 @@
 	@media (max-width: 700px) {
 		.about-grid { grid-template-columns: 1fr; }
 		.portrait { min-height: 26rem; }
+		.portrait img { min-height: 26rem; }
 	}
 </style>

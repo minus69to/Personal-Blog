@@ -6,7 +6,9 @@
 		</div>
 		<div class="footer-meta">
 			<a href="/about">About</a>
-			<a href="https://ngl.link/insomniyuck1" target="_blank" rel="noreferrer">Send me an anonymous message ↗</a>
+			<a href="https://chithi.me/insomniyuck" target="_blank" rel="noopener noreferrer">Send me an anonymous message ↗</a>
+			<a href="https://www.instagram.com/insomniyuck.me" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+			<a href="mailto:souvikmt99@gmail.com">souvikmt99@gmail.com</a>
 			<span>© {new Date().getFullYear()} Insomniyuck</span>
 		</div>
 	</div>

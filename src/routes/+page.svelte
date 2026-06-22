@@ -34,17 +34,9 @@
 			<div><VisitCounter /></div>
 		</div>
 
-		<div class="keepsake" aria-label="A decorative journal keepsake">
+		<div class="keepsake">
 			<span class="tape"></span>
-			<div class="botanical" aria-hidden="true">
-				<svg viewBox="0 0 180 230">
-					<path d="M88 217C91 169 86 121 100 73C106 50 119 28 134 12" />
-					<path d="M98 82C75 75 58 57 54 34C77 38 96 57 98 82Z" />
-					<path d="M91 124C113 113 138 114 157 127C139 144 110 143 91 124Z" />
-					<path d="M88 166C68 157 52 139 50 116C74 122 88 142 88 166Z" />
-					<path d="M105 63C125 63 144 53 156 36C134 30 113 42 105 63Z" />
-				</svg>
-			</div>
+			<img class="keepsake-photo" src="/image/home-photo.jpg" alt="Souvik standing beside the sea" />
 			<div class="caption">
 				<span>Entry no. 001</span>
 				<p>Collecting days<br />before they drift away.</p>
@@ -89,7 +81,7 @@
 			<p class="eyebrow">Say something softly</p>
 			<h2>Some words are easier<br />when they arrive unnamed.</h2>
 		</div>
-		<a href="https://ngl.link/insomniyuck1" target="_blank" rel="noreferrer">Send me an anonymous message <i>→</i></a>
+		<a href="https://chithi.me/insomniyuck" target="_blank" rel="noopener noreferrer">Send me an anonymous message <i>→</i></a>
 	</section>
 </main>
 
@@ -206,20 +198,14 @@
 		transform: translateX(-50%) rotate(-3deg);
 	}
 
-	.botanical {
-		display: grid;
+	.keepsake-photo {
+		display: block;
+		width: 100%;
+		height: 21rem;
 		min-height: 21rem;
-		place-items: center;
-		background: color-mix(in srgb, var(--accent-soft) 44%, var(--paper-raised));
-	}
-
-	.botanical svg {
-		width: 65%;
-		fill: color-mix(in srgb, var(--accent) 13%, transparent);
-		stroke: var(--accent-deep);
-		stroke-linecap: round;
-		stroke-linejoin: round;
-		stroke-width: 1.25;
+		object-fit: cover;
+		object-position: center 42%;
+		filter: saturate(0.88) contrast(0.96);
 	}
 
 	.caption {
@@ -270,7 +256,8 @@
 			font-size: clamp(3.7rem, 10vw, 6rem);
 		}
 
-		.botanical {
+		.keepsake-photo {
+			height: 17rem;
 			min-height: 17rem;
 		}
 	}
