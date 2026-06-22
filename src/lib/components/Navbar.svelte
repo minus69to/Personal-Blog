@@ -58,7 +58,7 @@
 		</button>
 	</div>
 
-	<nav class:open={menuOpen} aria-label="Main navigation">
+	<nav class="mobile-nav" class:open={menuOpen} aria-label="Mobile navigation">
 		{#each links as link, index}
 			<a href={link.href} class:active={page.url.pathname === link.href} onclick={() => (menuOpen = false)}>
 				<span>{String(index + 1).padStart(2, '0')}</span>{link.label}
@@ -66,6 +66,12 @@
 		{/each}
 	</nav>
 </header>
+
+<nav class="desktop-nav" aria-label="Main navigation">
+	{#each links as link}
+		<a href={link.href} class:active={page.url.pathname === link.href}>{link.label}</a>
+	{/each}
+</nav>
 
 <style>
 	.site-header {
@@ -149,16 +155,29 @@
 	.menu-button.active span { transform: rotate(45deg); }
 	.menu-button.active span:last-child { transform: rotate(-45deg); }
 
-	nav {
+	.desktop-nav {
+		position: sticky;
+		top: 0;
+		z-index: 100;
 		display: flex;
+		width: var(--content);
+		margin-inline: auto;
 		align-items: center;
 		justify-content: center;
 		gap: clamp(.7rem, 2.1vw, 2rem);
 		padding: .85rem 0;
+		border-top: 1px solid var(--line-strong);
 		border-bottom: 1px solid var(--line-strong);
+		background: color-mix(in srgb, var(--paper) 94%, transparent);
+		box-shadow: 0 .65rem 1.4rem color-mix(in srgb, var(--paper) 68%, transparent);
+		backdrop-filter: blur(14px) saturate(.85);
+		-webkit-backdrop-filter: blur(14px) saturate(.85);
 	}
 
-	nav a {
+	.mobile-nav { display: none; }
+
+	.desktop-nav a,
+	.mobile-nav a {
 		position: relative;
 		color: var(--ink-soft);
 		font-size: .64rem;
@@ -167,12 +186,20 @@
 		text-transform: uppercase;
 	}
 
-	nav a > span { display: none; }
-	nav a::after { position: absolute; right: 0; bottom: -.9rem; left: 0; height: 3px; content: ''; background: var(--rose); transform: scaleX(0); transition: transform 180ms ease; }
-	nav a:hover, nav a.active { color: var(--ink); }
-	nav a:hover::after, nav a.active::after { transform: scaleX(1); }
+	.mobile-nav a > span { display: none; }
+	.desktop-nav a::after,
+	.mobile-nav a::after { position: absolute; right: 0; bottom: -.9rem; left: 0; height: 3px; content: ''; background: var(--rose); transform: scaleX(0); transition: transform 180ms ease; }
+	.desktop-nav a:hover,
+	.desktop-nav a.active,
+	.mobile-nav a:hover,
+	.mobile-nav a.active { color: var(--ink); }
+	.desktop-nav a:hover::after,
+	.desktop-nav a.active::after,
+	.mobile-nav a:hover::after,
+	.mobile-nav a.active::after { transform: scaleX(1); }
 
 	@media (max-width: 880px) {
+		.desktop-nav { display: none; }
 		.edition-bar { grid-template-columns: 1fr 1fr; }
 		.edition-bar span:nth-child(2) { display: none; }
 		.masthead { padding: 1rem 0; }
@@ -180,7 +207,7 @@
 		.brand small { margin-top: .55rem; letter-spacing: .22em; }
 		.menu-button { position: relative; display: grid; grid-column: 1; grid-row: 1; }
 
-		nav {
+		.mobile-nav {
 			position: absolute;
 			top: 100%;
 			right: 0;
@@ -200,18 +227,18 @@
 			transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
 		}
 
-		nav.open { opacity: 1; visibility: visible; transform: translateY(0); }
-		nav a { display: flex; gap: .75rem; padding: 1rem .75rem; border-bottom: 1px solid var(--line); }
-		nav a:nth-child(odd) { border-right: 1px solid var(--line); }
-		nav a > span { display: inline; color: var(--rose); font-family: var(--font-display); font-size: .75rem; }
-		nav a::after { display: none; }
+		.mobile-nav.open { opacity: 1; visibility: visible; transform: translateY(0); }
+		.mobile-nav a { display: flex; gap: .75rem; padding: 1rem .75rem; border-bottom: 1px solid var(--line); }
+		.mobile-nav a:nth-child(odd) { border-right: 1px solid var(--line); }
+		.mobile-nav a > span { display: inline; color: var(--rose); font-family: var(--font-display); font-size: .75rem; }
+		.mobile-nav a::after { display: none; }
 	}
 
 	@media (max-width: 480px) {
 		.edition-bar { display: flex; justify-content: center; }
 		.edition-bar span:last-child { display: none; }
 		.brand small { display: none; }
-		nav { grid-template-columns: 1fr; }
-		nav a:nth-child(odd) { border-right: 0; }
+		.mobile-nav { grid-template-columns: 1fr; }
+		.mobile-nav a:nth-child(odd) { border-right: 0; }
 	}
 </style>
