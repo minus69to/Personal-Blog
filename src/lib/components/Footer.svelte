@@ -6,7 +6,7 @@
 		</div>
 		<div class="footer-meta">
 			<a href="/about">About</a>
-			<a href="https://chithi.me" target="_blank" rel="noreferrer">Leave an anonymous note ↗</a>
+			<a href="https://ngl.link/insomniyuck1" target="_blank" rel="noreferrer">Send me an anonymous message ↗</a>
 			<span>© {new Date().getFullYear()} Insomniyuck</span>
 		</div>
 	</div>

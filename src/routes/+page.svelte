@@ -89,7 +89,7 @@
 			<p class="eyebrow">Say something softly</p>
 			<h2>Some words are easier<br />when they arrive unnamed.</h2>
 		</div>
-		<a href="https://chithi.me" target="_blank" rel="noreferrer">Leave me an anonymous note <i>→</i></a>
+		<a href="https://ngl.link/insomniyuck1" target="_blank" rel="noreferrer">Send me an anonymous message <i>→</i></a>
 	</section>
 </main>
 

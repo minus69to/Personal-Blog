@@ -18,7 +18,7 @@
 			<div class="interests">
 				<span>long runs</span><span>good coffee</span><span>quiet films</span><span>window seats</span>
 			</div>
-			<a class="note-link" href="https://chithi.me" target="_blank" rel="noreferrer">Leave me an anonymous note →</a>
+			<a class="note-link" href="https://ngl.link/insomniyuck1" target="_blank" rel="noreferrer">Send me an anonymous message →</a>
 		</div>
 	</section>
 </main>
