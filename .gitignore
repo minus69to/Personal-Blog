@@ -8,3 +8,11 @@ build
 .DS_Store
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Private Android wrapper toolchains and build outputs
+mobile/node_modules
+mobile/.toolchains
+mobile/android/.gradle
+mobile/android/local.properties
+mobile/android/app/build
+mobile/Insomniyuck-debug.apk

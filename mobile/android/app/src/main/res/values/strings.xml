@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Insomniyuck</string>
+    <string name="title_activity_main">Insomniyuck</string>
+    <string name="package_name">me.insomniyuck.app</string>
+    <string name="custom_url_scheme">me.insomniyuck.app</string>
+</resources>

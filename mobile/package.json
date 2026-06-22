@@ -1,0 +1,19 @@
+{
+  "name": "insomniyuck-android",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Private Android wrapper for insomniyuck.me",
+  "scripts": {
+    "android:sync": "cap sync android",
+    "android:open": "cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.0.0",
+    "@capacitor/core": "^8.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.0.0",
+    "typescript": "^5.9.0"
+  }
+}
