@@ -45,7 +45,7 @@ Apply this policy to the R2 bucket, replacing the example production origin with
 
 Open `/studio` and sign in with the value stored in `MEDIA_UPLOAD_TOKEN`. The password is checked only on the server. A signed, HTTP-only session cookie keeps the studio open for 12 hours, and **Close studio** ends the session immediately.
 
-Choose an image or video, select its archive section, and upload it. The studio previews the file and returns the permanent public URL for use in post frontmatter.
+Choose up to 20 images or videos at once, select their shared archive section, and upload the batch. Files are sent sequentially so one large video does not overwhelm the connection. The contact sheet tracks each result, failed items can be retried, and all successful permanent URLs can be copied together for post frontmatter.
 
 Use `/studio/new` to prepare a post with structured metadata and a live reading proof. Download the generated `.svx` file into the matching `content/posts/<category>/` folder, then commit it with the site.
 
