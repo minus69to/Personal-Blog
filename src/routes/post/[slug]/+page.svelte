@@ -7,7 +7,16 @@
 	const Content = $derived(data.content);
 </script>
 
-<svelte:head><title>{data.post.title} — Insomniyuck</title><meta name="description" content={data.post.excerpt} /></svelte:head>
+<svelte:head>
+	<title>{data.post.title} — Insomniyuck</title>
+	<meta name="description" content={data.post.excerpt} />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content={`${data.post.title} — Insomniyuck`} />
+	<meta property="og:description" content={data.post.excerpt} />
+	{#if data.post.coverImage}<meta property="og:image" content={data.post.coverImage} />{/if}
+	<meta property="article:published_time" content={data.post.date} />
+	<meta property="article:section" content={data.post.category} />
+</svelte:head>
 
 <article class="page-shell" lang={data.post.language}>
 	<header>

@@ -13,6 +13,9 @@
 		name="description"
 		content="A personal diary of food, places, motion, stories, and the moments between them."
 	/>
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Insomniyuck — A personal memory archive" />
+	<meta property="og:description" content="A personal diary of food, places, motion, stories, and the moments between them." />
 </svelte:head>
 
 <main class="page-shell">

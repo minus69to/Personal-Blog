@@ -39,3 +39,9 @@ Never prefix private values with `PUBLIC_`, paste them into source files, or com
 After the Vercel deployment works, add `insomniyuck.me` and `www.insomniyuck.me` under **Project Settings → Domains**. Vercel will show the DNS records to add in Cloudflare. Keep the separate `media.insomniyuck.me` R2 custom domain unchanged.
 
 Environment-variable changes only apply to new deployments, so redeploy after adding or rotating a value.
+
+## Search discovery
+
+The deployed site publishes `/robots.txt` and a dynamic `/sitemap.xml` containing public sections and every post. Canonical metadata always points to `https://insomniyuck.me`, while `/studio` and `/api` are excluded from crawler access.
+
+After deployment, add the domain to Google Search Console and submit `https://insomniyuck.me/sitemap.xml`. A sitemap helps discovery but does not guarantee or accelerate ranking.
