@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
+	import SharePanel from '$lib/components/SharePanel.svelte';
 
 	type PreviewBlock = { kind: 'heading' | 'paragraph' | 'quote' | 'list'; text: string; level?: number };
 	type UploadResult = { publicUrl: string; uploadUrl: string; requiredHeaders: Record<string, string> };
@@ -492,6 +493,10 @@
 				</div>
 				{#if saveMessage}<p class:success={savePhase === 'saved'} class:error={savePhase === 'error'} class="save-message" aria-live="polite">{saveMessage}</p>{/if}
 				{#if !ready}<small>Complete the title, slug, date, introduction, and story first.</small>{/if}
+				{#if savedStatus === 'published' && databaseSlug}
+					<a class="view-post" href={`/post/${databaseSlug}`} target="_blank" rel="noopener noreferrer">View published post ↗</a>
+					<SharePanel {title} {excerpt} path={`/post/${databaseSlug}`} {coverImage} compact />
+				{/if}
 			</section>
 
 			<section class="export-card">
@@ -595,6 +600,7 @@
 	.save-message { margin: .85rem 0 0; font-size: .67rem; line-height: 1.5; }
 	.save-message.success { color: var(--accent-deep); }
 	.save-message.error { color: var(--rose); }
+	.view-post { display: block; margin-top: .85rem; color: var(--accent-deep); font-family: var(--font-display); font-size: .9rem; font-style: italic; text-align: center; }
 	.export-card { transform: rotate(-.3deg); }
 	.export-card button { margin-top: .75rem; }
 	.export-card button.secondary { color: var(--ink); background: transparent; }

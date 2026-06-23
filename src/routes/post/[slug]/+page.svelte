@@ -2,6 +2,7 @@
 	import CategoryBadge from '$lib/components/CategoryBadge.svelte';
 	import Gallery from '$lib/components/Gallery.svelte';
 	import InlineMarkdown from '$lib/components/InlineMarkdown.svelte';
+	import SharePanel from '$lib/components/SharePanel.svelte';
 	import VideoGallery from '$lib/components/VideoGallery.svelte';
 	import { formatDate } from '$lib/data/posts';
 	let { data } = $props();
@@ -57,6 +58,7 @@
 	</section>
 	{#if data.post.gallery.length}<Gallery images={data.post.gallery} title={data.post.title} />{/if}
 	{#if data.post.videos.length}<VideoGallery videos={data.post.videos} title={data.post.title} />{/if}
+	<SharePanel title={data.post.title} excerpt={data.post.excerpt} path={`/post/${data.post.slug}`} coverImage={data.post.coverImage} />
 	<footer class="post-footer"><a href={`/${data.post.category}`}>← Back to the collection</a><a href="/archive">View the archive →</a></footer>
 </article>
 

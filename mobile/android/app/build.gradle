@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+def metaAppId = System.getenv('META_APP_ID') ?: ''
+
 android {
     namespace = "me.insomniyuck.app"
     compileSdk = rootProject.ext.compileSdkVersion
@@ -9,6 +11,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+		buildConfigField "String", "META_APP_ID", "\"${metaAppId}\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -16,6 +19,9 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+	buildFeatures {
+		buildConfig true
+	}
     buildTypes {
         release {
             minifyEnabled false
