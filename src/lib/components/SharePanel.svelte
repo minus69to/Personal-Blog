@@ -57,20 +57,6 @@
 		}
 	}
 
-	async function sharePost() {
-		if (!shareUrl) return;
-		if (!navigator.share) {
-			await copyLink();
-			return;
-		}
-		try {
-			await navigator.share({ title: shareText, text: excerpt, url: shareUrl });
-		} catch (error) {
-			if (error instanceof DOMException && error.name === 'AbortError') return;
-			announce('Sharing was unavailable. Try one of the options below.');
-		}
-	}
-
 	function wrapText(context: CanvasRenderingContext2D, value: string, maxWidth: number) {
 		const words = value.trim().split(/\s+/);
 		const lines: string[] = [];
@@ -235,7 +221,7 @@
 				<span><small>Photo + title card</small><strong>{working ? 'Preparing…' : 'Share to Stories'}</strong></span>
 			</button>
 			<div class="destinations" aria-label="Sharing options">
-				<button type="button" onclick={sharePost}><span class="option-icon">↗</span>More</button>
+				<a href={`fb-messenger://share/?link=${encodedUrl}`}><span class="option-icon">M</span>Messenger</a>
 				<a href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`} target="_blank" rel="noopener noreferrer"><span class="option-icon">f</span>Facebook</a>
 				<a href={`https://wa.me/?text=${encodedMessage}`} target="_blank" rel="noopener noreferrer"><span class="option-icon">W</span>WhatsApp</a>
 				<a href={`https://t.me/share/url?url=${encodedUrl}&text=${encodeURIComponent(shareText)}`} target="_blank" rel="noopener noreferrer"><span class="option-icon">T</span>Telegram</a>
